@@ -1,1 +1,27 @@
+# Dataset
+Fabric Defect Dataset/
+dataset_split/
+dataset/
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Model
+*.pt
+*.pth
+*.h5
+*.keras
+*.onnx
+
+# OS
 .DS_Store
