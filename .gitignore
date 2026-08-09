@@ -18,6 +18,8 @@ env/
 
 # Model
 *.pt
+*.pt
+!models/best.pt
 *.pth
 *.h5
 *.keras
