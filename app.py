@@ -1,8 +1,9 @@
 import os
 from flask import Flask, request, jsonify
 from ultralytics import YOLO
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 model = YOLO("models/best.pt")
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
