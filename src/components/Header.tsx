@@ -30,7 +30,7 @@ export default function Header() {
             COMPFEST 18 · AI Innovation Challenge
           </p>
           <h1 className="font-display text-2xl font-semibold tracking-tight text-cream sm:text-3xl">
-            CORTIS
+            JARPIS
           </h1>
         </div>
 
