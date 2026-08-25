@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* Loom charcoal — the inspection-booth background */
+  --loom-charcoal: #16181a;
+  --panel-graphite: #1e2123;
+  --panel-graphite-raised: #24282a;
+  --hairline: #34393c;
+
+  /* Warp cream — raw canvas/cotton foreground */
+  --warp-cream: #ede6d8;
+  --warp-cream-dim: #a6a196;
+
+  /* Thread teal — the scan / active accent */
+  --thread-teal: #4fa8a0;
+  --thread-teal-dim: #316b66;
+
+  /* Signal amber — secondary, informational accent */
+  --signal-amber: #d9a441;
+
+  /* Flaw red — defect alert */
+  --flaw-red: #d1543f;
+  --flaw-red-dim: #4a2721;
+  --ok-green: #6fae6a;
+  --ok-green-dim: #253625;
+}
+
+@theme inline {
+  --color-loom: var(--loom-charcoal);
+  --color-panel: var(--panel-graphite);
+  --color-panel-raised: var(--panel-graphite-raised);
+  --color-hairline: var(--hairline);
+  --color-cream: var(--warp-cream);
+  --color-cream-dim: var(--warp-cream-dim);
+  --color-teal: var(--thread-teal);
+  --color-teal-dim: var(--thread-teal-dim);
+  --color-amber: var(--signal-amber);
+  --color-flaw: var(--flaw-red);
+  --color-flaw-dim: var(--flaw-red-dim);
+  --color-ok: var(--ok-green);
+  --color-ok-dim: var(--ok-green-dim);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-data: var(--font-roboto-mono);
+}
+
+body {
+  background: var(--loom-charcoal);
+  color: var(--warp-cream);
+  font-family: var(--font-body), sans-serif;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(237, 230, 216, 0.018) 0px,
+      rgba(237, 230, 216, 0.018) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* Signature element: a line-scan sweep, referencing the linear-array
+   cameras used in real fabric inspection rigs. Plays while a sample
+   is being analyzed. */
+@keyframes scan-sweep {
+  0% {
+    top: -2%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.scan-line {
+  animation: scan-sweep 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-line,
+  .fade-up {
+    animation: none !important;
+  }
+}
