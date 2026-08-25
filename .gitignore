@@ -16,6 +16,7 @@ build/
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
@@ -32,8 +33,37 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-uploads/
-test.png
+
+# python
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+.pytest_cache/
+
+# python virtual environment
+.venv/
+venv/
+env/
+
+# uploads (file gambar yang diupload user)
+uploads/
+test.png
+
+# model weights (file besar, tidak perlu di-commit)
+models/*.pt
+models/*.onnx
+models/*.engine
+
+# dataset (folder besar, tidak perlu di-commit)
+"Fabric Defect Dataset"/
+dataset_split/
+data/
+
+# IDE & editor
+.vscode/
+.idea/
+*.swp
+*.swo

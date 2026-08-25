@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: .
+      target: backend
+    container_name: cortis-backend
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./models:/app/models
+    networks:
+      - cortis-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    container_name: cortis-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5001
+    depends_on:
+      - backend
+    networks:
+      - cortis-network
+    restart: unless-stopped
+
+networks:
+  cortis-network:
+    driver: bridge
